@@ -15,16 +15,6 @@
   color: #fff;
 }
 
-.img-flex {
-  display: flex;
-  justify-content: center;
-}
-
-.block {
-  display: block;
-  margin: auto;
-}
-
 .img-smaller {
   width: 100%;
 }
