@@ -31,12 +31,4 @@
   .column-half {
     width: 50%;
   }
-
-  .textarea-mobile {
-    display: none;
-  }
-
-  .textarea-desktop {
-    display: block !important;
-  }
 }

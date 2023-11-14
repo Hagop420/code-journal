@@ -46,19 +46,11 @@ textarea {
   display: block;
   width: 100%;
   padding: 0.5rem;
-
-  /* flex-direction: column; */
 }
 
 .mt {
   margin-top: 20px;
 }
-
-/*
-label[for='txtarea']{
-  margin: 95px;
-  color:red
-} */
 
 .center {
   display: block;
@@ -72,37 +64,8 @@ label[for='txtarea']{
   background: purple;
   padding: 7px;
   border-radius: 0.3rem;
-
-  /* margin-right: 53px; */
-
-  /* position: relative;
-  left:0%;
-  right:0%; */
   margin-top: 20px;
   border: 0;
-
-  /* float: right; */
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 1);
-
-  /* position: relative; */
-
-  /* top: 10px; */
-
-  /* right: 20px; */
-
-  /* float: right; */
-}
-
-.desktop_txtarea {
-  color: #fff;
-  background: purple;
-  padding: 7px;
-  border-radius: 0.3rem;
-  margin-right: 52px;
-  margin-bottom: 20px;
-  display: block;
-  border: 0;
-  float: right;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 1);
 }
 

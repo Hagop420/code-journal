@@ -14,8 +14,6 @@ const previousTodoJSON = window.localStorage.getItem(
   'javascript-local-storage'
 );
 
-console.log(previousTodoJSON);
-
 if (previousTodoJSON !== null) {
   data = JSON.parse(previousTodoJSON);
 }

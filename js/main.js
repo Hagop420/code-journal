@@ -1,20 +1,15 @@
 /* global data */
 
-const imgSrcChange = document.querySelector('.changed');
-const photoId = document.querySelector('.photoURL');
-const form = document.querySelector('form');
+const $imgSrcChange = document.querySelector('.changed');
+const $photoId = document.querySelector('.photoURL');
+const $form = document.querySelector('form');
 
-photoId.addEventListener('input', (e) => {
-  if (e.target.value === imgSrcChange.setAttribute('src', e.target.value)) {
-    imgSrcChange.setAttribute('src', e.target.value);
-  } else if (e.target.value === '') {
-    imgSrcChange.src =
-      'https://i0.wp.com/tnpta.org/wp-content/themes/learnpro/framework/img/us-placeholder-square.jpg?resize=600%2C600&ssl=1';
-  }
+$photoId.addEventListener('input', (e) => {
+  $imgSrcChange.setAttribute('src', e.target.value);
 });
 // submit event
 
-form.addEventListener('submit', (e) => {
+$form.addEventListener('submit', (e) => {
   e.preventDefault();
 
   const objStorageFormInputs = {
@@ -24,9 +19,11 @@ form.addEventListener('submit', (e) => {
     textarea: e.target.elements.textarea.value,
   };
 
+  data.nextEntryId++;
+
   data.entries.unshift(objStorageFormInputs);
 
-  imgSrcChange.setAttribute('src', './images/placeholder-image-square.jpg');
+  $imgSrcChange.setAttribute('src', './images/placeholder-image-square.jpg');
 
-  form.reset();
+  $form.reset();
 });
