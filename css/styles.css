@@ -2,6 +2,10 @@
   text-transform: capitalize;
 }
 
+.grey {
+  background: rgb(200, 188, 188);
+}
+
 .purple {
   background: purple;
   width: 100vw;
@@ -22,9 +26,13 @@
 }
 
 .img-smaller {
-  height: 40vh;
+  height: 28vh;
   margin: auto auto 20px;
   display: block;
+}
+
+.height_change_compact {
+  height: 100px;
 }
 
 input[type='text'] {
@@ -36,9 +44,17 @@ input[type='text'] {
 }
 
 textarea {
-  margin: 20px auto;
+  margin: auto;
   display: block;
+
+  /* flex-direction: column; */
 }
+
+/*
+label[for='txtarea']{
+  margin: 95px;
+  color:red
+} */
 
 .center {
   display: block;
@@ -52,12 +68,23 @@ textarea {
   background: purple;
   padding: 7px;
   border-radius: 0.3rem;
-  margin-right: 53px;
-  margin-bottom: 20px;
+
+  /* margin-right: 53px; */
+
+  /* position: relative;
+  left:0%;
+  right:0%; */
+  margin: 10px;
   display: block;
   border: 0;
-  float: right;
+
+  /* float: right; */
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 1);
+  position: relative;
+  top: 10px;
+
+  /* right: 20px; */
+  float: right;
 }
 
 .desktop_txtarea {
