@@ -5,7 +5,6 @@ let data = {
   entries: [],
   editing: null,
   nextEntryId: 1,
-  entryId: 1,
 };
 
 // localStorage
