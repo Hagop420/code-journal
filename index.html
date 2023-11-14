@@ -15,12 +15,67 @@
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body>
-    <header>
-      <div class="container"></div>
+
+  <body class="grey">
+    <header class="purple">
+      <div class="container">
+        <nav class="row">
+          <h2 class="text-cap bg-white">code journal</h2>
+        </nav>
+      </div>
     </header>
     <main class="container">
-      <div data-view="entry-form"></div>
+      <div data-view="entry-form">
+        <form action="" class="center">
+          <div class="row">
+            <h2 class="text-cap column-full">new entry</h2>
+          </div>
+
+          <div class="row">
+            <div class="column-half">
+              <img
+                src="./images/placeholder-image-square.jpg"
+                class="img-smaller changed"
+                alt="img_placeholder" />
+            </div>
+            <div class="column-half">
+              <label>
+                Title
+                <input class="val" type="text" name="title" required />
+              </label>
+              <label>
+                Photo ID
+                <input
+                  type="text"
+                  class="photoURL val"
+                  name="photoID"
+                  required />
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full mt">
+              <label>
+                Notes
+
+                <textarea
+                  class="val"
+                  name="textarea"
+                  id="txtarea"
+                  cols="55"
+                  rows="10"
+                  required></textarea>
+              </label>
+            </div>
+          </div>
+          <!-- mobile txtarea -->
+          <div class="row justify-end">
+            <!-- <label> -->
+            <button type="submit" class="submitBtn">Save</button>
+            <!-- </label> -->
+          </div>
+        </form>
+      </div>
       <div data-view="entries" class="hidden"></div>
     </main>
     <script src="js/data.js"></script>
