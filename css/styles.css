@@ -1,0 +1,65 @@
+.text-cap {
+  text-transform: capitalize;
+}
+
+.grey {
+  background: rgb(200, 188, 188);
+}
+
+.purple {
+  background: purple;
+  width: 100vw;
+}
+
+.bg-white {
+  color: #fff;
+}
+
+.img-smaller {
+  width: 100%;
+}
+
+.height_change_compact {
+  height: 100px;
+}
+
+input[type='text'] {
+  display: inline-block;
+  width: 100%;
+  margin: 30px 0;
+  padding: 10px;
+  border: 0;
+}
+
+textarea {
+  margin: 10px auto;
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.mt {
+  margin-top: 20px;
+}
+
+.center {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.submitBtn {
+  color: #fff;
+  background: purple;
+  padding: 7px;
+  border-radius: 0.3rem;
+  margin-top: 20px;
+  border: 0;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 1);
+}
+
+/* mobile styling */
+.justify-end {
+  justify-content: end;
+}
