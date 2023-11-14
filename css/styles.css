@@ -1,0 +1,76 @@
+.text-cap {
+  text-transform: capitalize;
+}
+
+.purple {
+  background: purple;
+  width: 100vw;
+}
+
+.bg-white {
+  color: #fff;
+}
+
+.img-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.block {
+  display: block;
+  margin: 10px auto;
+}
+
+.img-smaller {
+  height: 40vh;
+  margin: auto auto 20px;
+  display: block;
+}
+
+input[type='text'] {
+  display: inline-block;
+  width: 100%;
+  margin: 30px 0;
+  padding: 10px;
+  border: 0;
+}
+
+textarea {
+  margin: 20px auto;
+  display: block;
+}
+
+.center {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.submitBtn {
+  color: #fff;
+  background: purple;
+  padding: 7px;
+  border-radius: 0.3rem;
+  margin-right: 53px;
+  margin-bottom: 20px;
+  display: block;
+  border: 0;
+  float: right;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 1);
+}
+
+.desktop_txtarea {
+  color: #fff;
+  background: purple;
+  padding: 7px;
+  border-radius: 0.3rem;
+  margin-right: 52px;
+  margin-bottom: 20px;
+  display: block;
+  border: 0;
+  float: right;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 1);
+}
+
+/* mobile styling */
