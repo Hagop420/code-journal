@@ -20,10 +20,6 @@ img {
   width: 100%;
 }
 
-.height_change_compact {
-  height: 100px;
-}
-
 nav small {
   display: flex;
   text-transform: capitalize;
@@ -122,4 +118,10 @@ textarea {
 
 .entriesNav:hover {
   opacity: 0.9;
+}
+
+/* universal btn class */
+
+button {
+  cursor: pointer;
 }
