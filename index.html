@@ -21,12 +21,12 @@
       <div class="container">
         <nav class="row">
           <h2 class="text-cap bg-white">code journal</h2>
-          <small>entries</small>
+          <a href="#" class="entriesNav text-cap entriesBtn">entries</a>
         </nav>
       </div>
     </header>
     <main class="container">
-      <div data-view="entry-form" class="">
+      <div data-view="entry-form" class="query_one">
         <form action="" class="center">
           <div class="row">
             <h2 class="text-cap column-full">new entries</h2>
@@ -79,7 +79,7 @@
         </form>
       </div>
       <div class="container">
-        <div data-view="entries" class="hiddedn">
+        <div data-view="entries" class="hidden query_two">
           <div class="row align-items-center">
             <h2 class="text-cap">view entries</h2>
             <div>
@@ -88,50 +88,15 @@
               </button>
             </div>
           </div>
-          <ul class="unordered">
-            <li class="row">
-              <div class="column-half">
-                <img
-                  src="https://reelpaper.com/cdn/shop/articles/how-to-save-trees-5-ways-to-protect-our-forests-reel-talk-179394_1024x1024.jpg?v=1605124157"
-                  alt="trees_png" />
-              </div>
-              <div class="column-half">
-                <p class="bold appnedHtwo">A newer image</p>
-                <p class="appendChildFromJs">A very nice lake</p>
-              </div>
-            </li>
-
-            <!-- list item 2 -->
-            <li class="row">
-              <div class="column-half">
-                <img
-                  src="https://reelpaper.com/cdn/shop/articles/how-to-save-trees-5-ways-to-protect-our-forests-reel-talk-179394_1024x1024.jpg?v=1605124157"
-                  alt="trees_png" />
-              </div>
-              <div>
-                <p class="bold appnedHtwo">This is a newer image</p>
-                <p class="appendChildFromJs">A pretty lake</p>
-              </div>
-            </li>
-
-            <!-- list item 3 -->
-
-            <li class="row">
-              <div class="column-half">
-                <img
-                  src="https://reelpaper.com/cdn/shop/articles/how-to-save-trees-5-ways-to-protect-our-forests-reel-talk-179394_1024x1024.jpg?v=1605124157"
-                  alt="trees_png" />
-              </div>
-              <div>
-                <p class="bold appnedHtwo">A new image</p>
-                <p class="appendChildFromJs">I guess it's not a new image</p>
-              </div>
-            </li>
-          </ul>
+          <!-- HTML error msg that checks if the array entries r null or length of 0 -->
+          <h1 class="nullMsg">
+            No entries have been made at this specific time!
+          </h1>
+          <ul class="unordered"></ul>
         </div>
       </div>
     </main>
     <script src="js/data.js"></script>
-    <script type="module" src="js/main.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
