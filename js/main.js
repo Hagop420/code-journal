@@ -1,17 +1,11 @@
 /* global data */
-
 const $imgSrcChange = document.querySelector('.changed');
 const $photoId = document.querySelector('.photoURL');
 const $form = document.querySelector('form');
-// const $appendingLis = document.querySelectorAll('.appendChildFromJs')
-// const $h2 = document.querySelectorAll('.appnedHtwo')
-const entriesList = document.querySelector('.unordered'); // Replace 'entriesList' with the actual ID of your unordered list
+const entriesList = document.querySelector('.unordered');
 const $anchorEntries = document.querySelector('.entriesBtn');
 const entryForm = document.querySelector('.query_one');
 const entriesBottom = document.querySelector('.query_two');
-
-// console.log(entries.innerHTML)
-// console.log(entries_two.innerHTML)
 
 $photoId.addEventListener('input', (e) => {
   $imgSrcChange.setAttribute('src', e.target.value);
@@ -43,8 +37,6 @@ $form.addEventListener('submit', (e) => {
   viewSwap('entrfdsafdsies');
   toggleEntries();
 });
-
-// Code for second branch
 
 // renderEntriy function create DOM tree structure
 
@@ -119,6 +111,7 @@ function viewSwap(entries) {
   if (entries === 'entries') {
     entriesBottom.classList.remove('hidden');
     entryForm.classList.add('hidden');
+    // for commit purposes
 
     // entry-form is the entry on top
   } else if (entries === 'entry-form') {
