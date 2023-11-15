@@ -111,7 +111,6 @@ function viewSwap(entries) {
   if (entries === 'entries') {
     entriesBottom.classList.remove('hidden');
     entryForm.classList.add('hidden');
-    // for commit purposes
 
     // entry-form is the entry on top
   } else if (entries === 'entry-form') {
