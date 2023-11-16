@@ -21,14 +21,16 @@
       <div class="container">
         <nav class="row">
           <h2 class="text-cap bg-white">code journal</h2>
+          <a href="#" class="entriesNav text-cap entriesBtn">entries</a>
         </nav>
       </div>
     </header>
+
     <main class="container">
-      <div data-view="entry-form">
+      <div data-view="entry-form" class="query_one">
         <form action="" class="center">
           <div class="row">
-            <h2 class="text-cap column-full">new entry</h2>
+            <h2 class="text-cap column-full">new entries</h2>
           </div>
 
           <div class="row">
@@ -57,7 +59,6 @@
             <div class="column-full mt">
               <label>
                 Notes
-
                 <textarea
                   class="val"
                   name="textarea"
@@ -76,7 +77,24 @@
           </div>
         </form>
       </div>
-      <div data-view="entries" class="hidden"></div>
+      <div class="container">
+        <div data-view="entries" class="query_two">
+          <div class="row align-items-center">
+            <h2 class="text-cap">view entries</h2>
+            <div>
+              <button
+                class="text-uppercase new_js position_class submitBtn pd-2x">
+                new
+              </button>
+            </div>
+          </div>
+          <!-- HTML error msg that checks if the array entries r null or length of 0 -->
+          <h1 class="nullMsg">
+            No entries have been made at this specific time!
+          </h1>
+          <ul class="unordered"></ul>
+        </div>
+      </div>
     </main>
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
