@@ -28,7 +28,6 @@ nav small {
   align-items: center;
 }
 
-/* git purposes */
 input[type='text'] {
   display: inline-block;
   width: 100%;
@@ -65,7 +64,6 @@ textarea {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 1);
 }
 
-/* mobile styling */
 .justify-end {
   justify-content: end;
 }
@@ -86,8 +84,6 @@ textarea {
   align-items: center;
   justify-content: space-between;
 }
-
-/* NEW btn making */
 
 .pd-2x {
   padding: 5px 15px;
@@ -114,8 +110,6 @@ textarea {
 .entriesNav:hover {
   opacity: 0.9;
 }
-
-/* universal btn class */
 
 button {
   cursor: pointer;
