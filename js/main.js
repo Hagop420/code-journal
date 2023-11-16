@@ -34,7 +34,7 @@ $form.addEventListener('submit', (e) => {
   const callRender = renderEntry(objStorageFormInputs);
 
   $entriesList.prepend(callRender);
-  viewSwap('entrfdsafdsies');
+  viewSwap('entries');
   toggleEntries();
 });
 
@@ -120,8 +120,6 @@ function viewSwap(entries) {
 // working with the entries anchor tag on top and calling an event on it
 
 $anchorEntries.addEventListener('click', () => {
-  console.log(viewSwap('entries'));
-
-  viewSwap();
+  viewSwap('entries');
   toggleEntries();
 });
