@@ -2,10 +2,10 @@
 const $imgSrcChange = document.querySelector('.changed');
 const $photoId = document.querySelector('.photoURL');
 const $form = document.querySelector('form');
-const entriesList = document.querySelector('.unordered');
+const $entriesList = document.querySelector('.unordered');
 const $anchorEntries = document.querySelector('.entriesBtn');
-const entryForm = document.querySelector('.query_one');
-const entriesBottom = document.querySelector('.query_two');
+const $entryForm = document.querySelector('.query_one');
+const $entriesBottom = document.querySelector('.query_two');
 
 $photoId.addEventListener('input', (e) => {
   $imgSrcChange.setAttribute('src', e.target.value);
@@ -33,7 +33,7 @@ $form.addEventListener('submit', (e) => {
 
   const callRender = renderEntry(objStorageFormInputs);
 
-  entriesList.prepend(callRender);
+  $entriesList.prepend(callRender);
   viewSwap('entrfdsafdsies');
   toggleEntries();
 });
@@ -83,14 +83,12 @@ const renderEntry = (entry) => {
   return liCreation;
 };
 
-// console.log(renderEntry()))
-
 // Calling the addEventListner on the DOM'S document
 const nullMsg = document.querySelector('.nullMsg');
 
 document.addEventListener('DOMContentLoaded', () => {
   for (let i = 0; i < data.entries.length; i += 1) {
-    entriesList.appendChild(renderEntry(data.entries[i]));
+    $entriesList.appendChild(renderEntry(data.entries[i]));
   }
   viewSwap(data.view);
   //  Creating a coditional inside a function named toggleNoEntries checking if the ul's
@@ -109,13 +107,13 @@ function toggleEntries() {
 // entries is the form on bottom
 function viewSwap(entries) {
   if (entries === 'entries') {
-    entriesBottom.classList.remove('hidden');
-    entryForm.classList.add('hidden');
+    $entriesBottom.classList.remove('hidden');
+    $entryForm.classList.add('hidden');
 
     // entry-form is the entry on top
   } else if (entries === 'entry-form') {
-    entryForm.classList.remove('hidden');
-    entriesBottom.classList.add('hidden');
+    $entryForm.classList.remove('hidden');
+    $entriesBottom.classList.add('hidden');
   }
 }
 

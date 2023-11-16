@@ -79,13 +79,8 @@ textarea {
 
 /* branch 2 */
 .flexNew {
-  display: flex !important;
+  display: flex;
 }
-
-/* .position_class{
-  position:relative;
-  bottom: 40px;
-} */
 
 .align-items-center {
   align-items: center;
