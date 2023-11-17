@@ -7,7 +7,7 @@ const $anchorEntries = document.querySelector('.entriesBtn');
 const $entryForm = document.querySelector('.query_one');
 const $entriesBottom = document.querySelector('.query_two');
 const $newBtn = document.querySelector('.new_js');
-// const allLiAttributes = document.querySelector('li.row[data-entry-id]="\2\"');
+const $nullMessage = document.querySelectorAll('.nullMsg');
 $photoId.addEventListener('input', (e) => {
   $imgSrcChange.setAttribute('src', e.target.value);
 });
@@ -37,6 +37,12 @@ $form.addEventListener('submit', (e) => {
   $entriesList.prepend($callRender);
   viewSwap('entries');
   toggleEntries();
+
+  // Update for the editing view using a condition
+
+  if (data.editing === null) {
+    $nullMessage.textContent = 'No entries';
+  }
 });
 
 // renderEntriy function create DOM tree structure
@@ -46,7 +52,7 @@ const renderEntry = (entry) => {
 
   const $liCreation = document.createElement('li');
   $liCreation.className = 'row';
-  $liCreation.setAttribute('data-entry-id', data.entryId);
+  $liCreation.setAttribute('data-entry-id', entry.entryId);
 
   // console.log($liCreation)
 
@@ -81,6 +87,7 @@ const renderEntry = (entry) => {
   const createIcon = document.createElement('i');
   createIcon.className =
     'fa-pencil fa-solid mt fontAwesomeIcons fontAwesomeIcons_sizes';
+  createIcon.setAttribute('title', 'Edit Entry');
 
   $liCreation.appendChild($div);
   $liCreation.appendChild($div2);
@@ -140,24 +147,28 @@ $anchorEntries.addEventListener('click', () => {
   viewSwap('entries');
   toggleEntries();
 });
-
+const valOne = document.querySelector('.val');
+const valTwo = document.querySelector('.emailInp');
+const textArea = document.querySelector('.textInp');
+// const mainImg = document.querySelector('.imgInpMain')
 $entriesList.addEventListener('click', (e) => {
+  // debugger;
   // console.log(e.target)
 
-  // const liRow = e.target.closest('li').getAttribute(allLiAttributes)
+  const liRow = e.target.closest('li');
 
   if (e.target.tagName === 'I') {
     viewSwap('entry-form');
-
-    //  data.entries.forEach(dataEl => {
-    // //   if(dataEl.dataset.e){
-    // //     console.log(12)
-    // //   }else{
-    // //     console.log(12111)
-    // //   }
-    // //  })
-    // }
-
-    // }
+    console.log(liRow);
+    data.entries.forEach((dataEl) => {
+      if (dataEl.entryId.toString() === liRow.getAttribute('data-entry-id')) {
+        data.editing = dataEl;
+        valOne.value = data.editing.title;
+        valTwo.value = data.editing.photoID;
+        textArea.value = data.editing.textarea;
+        $imgSrcChange.setAttribute('src', data.editing.photoID);
+        console.log(data.editing);
+      }
+    });
   }
 });
