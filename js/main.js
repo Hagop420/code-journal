@@ -7,7 +7,7 @@ const $anchorEntries = document.querySelector('.entriesBtn');
 const $entryForm = document.querySelector('.query_one');
 const $entriesBottom = document.querySelector('.query_two');
 const $newBtn = document.querySelector('.new_js');
-
+// const allLiAttributes = document.querySelector('li.row[data-entry-id]="\2\"');
 $photoId.addEventListener('input', (e) => {
   $imgSrcChange.setAttribute('src', e.target.value);
 });
@@ -46,6 +46,9 @@ const renderEntry = (entry) => {
 
   const $liCreation = document.createElement('li');
   $liCreation.className = 'row';
+  $liCreation.setAttribute('data-entry-id', data.entryId);
+
+  // console.log($liCreation)
 
   // div element creation
 
@@ -73,9 +76,16 @@ const renderEntry = (entry) => {
   $p2.textContent = entry.textarea;
   // appending to the DOM with appendChild
 
+  // adding the pencil icon from font awesome
+
+  const createIcon = document.createElement('i');
+  createIcon.className =
+    'fa-pencil fa-solid mt fontAwesomeIcons fontAwesomeIcons_sizes';
+
   $liCreation.appendChild($div);
   $liCreation.appendChild($div2);
   $div.appendChild($imgDomTree);
+  $div2.appendChild(createIcon);
   $div2.appendChild($h1);
   $div2.appendChild($p2);
 
@@ -129,4 +139,25 @@ $newBtn.addEventListener('click', () => {
 $anchorEntries.addEventListener('click', () => {
   viewSwap('entries');
   toggleEntries();
+});
+
+$entriesList.addEventListener('click', (e) => {
+  // console.log(e.target)
+
+  // const liRow = e.target.closest('li').getAttribute(allLiAttributes)
+
+  if (e.target.tagName === 'I') {
+    viewSwap('entry-form');
+
+    //  data.entries.forEach(dataEl => {
+    // //   if(dataEl.dataset.e){
+    // //     console.log(12)
+    // //   }else{
+    // //     console.log(12111)
+    // //   }
+    // //  })
+    // }
+
+    // }
+  }
 });

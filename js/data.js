@@ -8,6 +8,8 @@ let data = {
 
 // localStorage
 
+// uncomment when finished with branch
+
 const previousTodoJSON = window.localStorage.getItem(
   'javascript-local-storage'
 );
