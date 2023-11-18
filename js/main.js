@@ -7,42 +7,45 @@ const $anchorEntries = document.querySelector('.entriesBtn');
 const $entryForm = document.querySelector('.query_one');
 const $entriesBottom = document.querySelector('.query_two');
 const $newBtn = document.querySelector('.new_js');
-const $nullMessage = document.querySelectorAll('.nullMsg');
+const $nullMsg = document.querySelectorAll('.nullMsg');
+
 $photoId.addEventListener('input', (e) => {
   $imgSrcChange.setAttribute('src', e.target.value);
 });
 // submit event
 
 $form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const objStorageFormInputs = {
-    entryId: data.nextEntryId,
-    title: e.target.elements.title.value,
-    photoID: e.target.elements.photoID.value,
-    textarea: e.target.elements.textarea.value,
-  };
-
-  data.nextEntryId++;
-
-  data.entries.unshift(objStorageFormInputs);
-
-  $imgSrcChange.setAttribute('src', './images/placeholder-image-square.jpg');
-
-  $form.reset();
-
-  // render the renderEntry callback on the form if the form's submitted
-
-  const $callRender = renderEntry(objStorageFormInputs);
-
-  $entriesList.prepend($callRender);
-  viewSwap('entries');
-  toggleEntries();
-
-  // Update for the editing view using a condition
-
   if (data.editing === null) {
-    $nullMessage.textContent = 'No entries';
+    e.preventDefault();
+    const objStorageFormInputs = {
+      entryId: data.nextEntryId,
+      title: e.target.elements.title.value,
+      photoID: e.target.elements.photoID.value,
+      textarea: e.target.elements.textarea.value,
+    };
+
+    data.nextEntryId++;
+
+    data.entries.unshift(objStorageFormInputs);
+
+    $imgSrcChange.setAttribute('src', './images/placeholder-image-square.jpg');
+
+    $form.reset();
+
+    // render the renderEntry callback on the form if the form's submitted
+
+    const $callRender = renderEntry(objStorageFormInputs);
+
+    // Update for the editing view using a condition
+    // Current step in code-journal
+
+    $entriesList.prepend($callRender);
+    viewSwap('entries');
+    toggleEntries();
   }
+  // else if (data.editing !== null) {
+
+  // }
 });
 
 // renderEntriy function create DOM tree structure
@@ -89,6 +92,7 @@ const renderEntry = (entry) => {
     'fa-pencil fa-solid mt fontAwesomeIcons fontAwesomeIcons_sizes';
   createIcon.setAttribute('title', 'Edit Entry');
 
+  // appending the element's to the DOM
   $liCreation.appendChild($div);
   $liCreation.appendChild($div2);
   $div.appendChild($imgDomTree);
@@ -101,16 +105,15 @@ const renderEntry = (entry) => {
   return $liCreation;
 };
 
-// Calling the addEventListner on the DOM'S document
-const $nullMsg = document.querySelector('.nullMsg');
+// const $nullMsg = document.querySelector('.nullMsg');
 
+// Calling the addEventListner on the Document's document
 document.addEventListener('DOMContentLoaded', () => {
   for (let i = 0; i < data.entries.length; i += 1) {
     $entriesList.appendChild(renderEntry(data.entries[i]));
   }
+  // calling the callback's of the viewSwap and toggleEntrie's function
   viewSwap(data.view);
-  //  Creating a coditional inside a function named toggleNoEntries checking if the ul's
-  //  text content is not null
   toggleEntries();
 });
 
