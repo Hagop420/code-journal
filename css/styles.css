@@ -120,11 +120,13 @@ button {
 .fontAwesomeIcons {
   float: right;
 }
+
 .fontAwesomeIcons_sizes {
   font-size: 19px;
 }
 
-i {
+i,
+i:hover {
   transition: all 0.3s ease-in-out;
 }
 
