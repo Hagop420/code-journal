@@ -1,27 +1,27 @@
 /* exported data */
-let data = {
-  view: 'entry-form',
-  entries: [],
-  editing: null,
-  nextEntryId: 1,
-};
+// let data = {
+//   view: 'entry-form',
+//   entries: [],
+//   editing: null,
+//   nextEntryId: 1,
+// };
 
 // localStorage
 
 // uncomment when finished with branch
 
-const previousTodoJSON = window.localStorage.getItem(
-  'javascript-local-storage'
-);
+// const previousTodoJSON = window.localStorage.getItem(
+//   'javascript-local-storage'
+// );
 
-if (previousTodoJSON !== null) {
-  data = JSON.parse(previousTodoJSON);
-}
+// if (previousTodoJSON !== null) {
+//   data = JSON.parse(previousTodoJSON);
+// }
 
-window.addEventListener('beforeunload', (e) => {
-  // data object into a string
+// window.addEventListener('beforeunload', (e) => {
+//   // data object into a string
 
-  const todosJSON = JSON.stringify(data);
+//   const todosJSON = JSON.stringify(data);
 
-  localStorage.setItem('javascript-local-storage', todosJSON);
-});
+//   localStorage.setItem('javascript-local-storage', todosJSON);
+// });

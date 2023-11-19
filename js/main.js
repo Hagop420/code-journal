@@ -7,7 +7,8 @@ const $anchorEntries = document.querySelector('.entriesBtn');
 const $entryForm = document.querySelector('.query_one');
 const $entriesBottom = document.querySelector('.query_two');
 const $newBtn = document.querySelector('.new_js');
-const $nullMsg = document.querySelectorAll('.nullMsg');
+const $nullMsg = document.querySelector('.nullMsg');
+// const $newLiRep = document.querySelector('li');
 
 $photoId.addEventListener('input', (e) => {
   $imgSrcChange.setAttribute('src', e.target.value);
@@ -15,8 +16,10 @@ $photoId.addEventListener('input', (e) => {
 // submit event
 
 $form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  // This conditional checks if the data.editing pencil is a value of null or not null
   if (data.editing === null) {
-    e.preventDefault();
     const objStorageFormInputs = {
       entryId: data.nextEntryId,
       title: e.target.elements.title.value,
@@ -40,15 +43,46 @@ $form.addEventListener('submit', (e) => {
     // Current step in code-journal
 
     $entriesList.prepend($callRender);
-    viewSwap('entries');
-    toggleEntries();
-  }
-  // else if (data.editing !== null) {
+  } else if (data.editing !== null) {
+    // Looping over the Data.entrie's array and finding which element's matche's the data.editing
+    data.entries.forEach((dataEl) => {
+      if (dataEl === data.editing) {
+        console.log(1222);
+        // Replacing the object in the data.entries object/array with the data.editing object
+        // data.entries = data.editing
 
-  // }
+        // Rendering a new DOM tree
+        const $liCreation = document.createElement('li');
+        $liCreation.className = 'rodw';
+        $liCreation.setAttribute('data-entry-id', data.editing);
+
+        // Creating in the same div's
+
+        const $div = document.createElement('div');
+        $div.className = 'column-half';
+        // div 2 creation
+
+        const $div2 = document.createElement('div');
+        $div2.className = 'column-half';
+
+        // appending the new li
+
+        $liCreation.appendChild($div);
+        $liCreation.appendChild($div2);
+
+        console.log($liCreation);
+
+        // Render new DOM tree end
+      }
+    });
+  }
+
+  // Invoking the viewSwap() and the toggleEnties() callback's
+  viewSwap('entries');
+  toggleEntries();
 });
 
-// renderEntriy function create DOM tree structure
+// renderEntriy function functionallity i's to create a DOM tree structure
 
 const renderEntry = (entry) => {
   // create the li element dom tree
