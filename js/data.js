@@ -6,9 +6,8 @@ let data = {
   nextEntryId: 1,
 };
 
-// localStorage
-
 // uncomment when finished with branch
+// localStorage
 
 const previousTodoJSON = window.localStorage.getItem(
   'javascript-local-storage'

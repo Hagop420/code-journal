@@ -119,15 +119,11 @@ button {
 
 .fontAwesomeIcons {
   float: right;
+  cursor: pointer;
 }
 
 .fontAwesomeIcons_sizes {
   font-size: 19px;
 }
 
-i,
-i:hover {
-  transition: all 0.3s ease-in-out;
-}
-
-/* .fontAwesomeIcons:hover{cursor: pointer;opacity:.8;color:rgb(0, 106, 255)} */
+/* i:hover{cursor: pointer;opacity:.8;color:rgb(0, 106, 255)} */
