@@ -26,13 +26,13 @@ $form.addEventListener('submit', (e) => {
   e.preventDefault();
 
   // This conditional checks if the data.editing pencil is a value of null or not null
+
   const objStorageFormInputs = {
     entryId: data.nextEntryId,
     title: e.target.elements.title.value,
     photoID: e.target.elements.photoID.value,
     textarea: e.target.elements.textarea.value,
   };
-
   if (data.editing === null) {
     data.nextEntryId++;
 
