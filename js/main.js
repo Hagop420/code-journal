@@ -17,9 +17,11 @@ $photoId.addEventListener('input', (e) => {
   $imgSrcChange.setAttribute('src', e.target.value);
 });
 
+
 // submit event
 
 // Listner method for the actual form submition
+console.log(data.entries)
 
 $form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -44,29 +46,29 @@ $form.addEventListener('submit', (e) => {
     // render the renderEntry callback on the form if the form's submitted
 
     const $callRender = renderEntry(objStorageFormInputs);
-
-    // Update for the editing view using a condition
+          // Update for the editing view using a condition
     // Current step in code-journal
 
     $entriesList.prepend($callRender);
   } else if (data.editing !== null) {
     // Looping over the Data.entrie's array and finding which element's matche's the data.editing
-    data.entries.forEach((dataEl) => {
+    data.entries.forEach(dataEl => {
       if (dataEl === data.editing) {
         // Replacing the object in the data.entries object/array with the data.editing object
         // data.entries = data.editing
 
         // DOM tree callback call with the object arg.
-        data.editing = null;
-        renderEntry(data);
-      }
-    });
-  }
+        // data.editing = null;
+        renderEntry(objStorageFormInputs);
+    // })
+    }
+  })
+}
+// Invoking the viewSwap() and the toggleEnties() callback's
+viewSwap('entries');
+toggleEntries();
+})
 
-  // Invoking the viewSwap() and the toggleEnties() callback's
-  viewSwap('entries');
-  toggleEntries();
-});
 
 // renderEntriy function functionallity i's to create a DOM tree structure
 
