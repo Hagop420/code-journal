@@ -10,6 +10,7 @@ const $entryForm = document.querySelector('.query_one');
 const $entriesBottom = document.querySelector('.query_two');
 const $newBtn = document.querySelector('.new_js');
 const $nullMsg = document.querySelector('.nullMsg');
+const $findingTheDomCreatedLis = document.querySelector('li.row');
 
 // event on the photoURL input which listen's for when the user type's
 
@@ -21,19 +22,21 @@ $photoId.addEventListener('input', (e) => {
 // submit event
 
 // Listner method for the actual form submition
-console.log(data.entries)
+
 
 $form.addEventListener('submit', (e) => {
   e.preventDefault();
 
   // This conditional checks if the data.editing pencil is a value of null or not null
+  const objStorageFormInputs = {
+    entryId: data.nextEntryId,
+    title: e.target.elements.title.value,
+    photoID: e.target.elements.photoID.value,
+    textarea: e.target.elements.textarea.value,
+  };
+
+
   if (data.editing === null) {
-    const objStorageFormInputs = {
-      entryId: data.nextEntryId,
-      title: e.target.elements.title.value,
-      photoID: e.target.elements.photoID.value,
-      textarea: e.target.elements.textarea.value,
-    };
 
     data.nextEntryId++;
 
@@ -56,14 +59,24 @@ $form.addEventListener('submit', (e) => {
       if (dataEl === data.editing) {
         // Replacing the object in the data.entries object/array with the data.editing object
         // data.entries = data.editing
-
+        // Updating the objStorageFoemInputs.entryId with editing value inside the object's array in LS
+    objStorageFormInputs.entryId = data.editing
         // DOM tree callback call with the object arg.
-        // data.editing = null;
-        renderEntry(objStorageFormInputs);
-    // })
-    }
-  })
-}
+        data.entries = data.editing;
+        // })
+
+
+
+        // Finding the existing LI element and changing/replacing it's value to
+        // to match the editing array
+
+        $findingTheDomCreatedLis.replaceWith(dataEl)
+
+        // finding the Li and changing it's value end
+      }
+    })
+    renderEntry(objStorageFormInputs);
+  }
 // Invoking the viewSwap() and the toggleEnties() callback's
 viewSwap('entries');
 toggleEntries();
