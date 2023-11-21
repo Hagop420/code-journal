@@ -11,6 +11,7 @@ const $entriesBottom = document.querySelector('.query_two');
 const $newBtn = document.querySelector('.new_js');
 const $nullMsg = document.querySelector('.nullMsg');
 const $findingTheDomCreatedLis = document.querySelector('li.row');
+const $eHeader = document.querySelector('.entryHeader');
 
 // event on the photoURL input which listen's for when the user type's
 
@@ -193,6 +194,7 @@ $entriesList.addEventListener('click', (e) => {
         valTwo.value = data.editing.photoID;
         textArea.value = data.editing.textarea;
         $imgSrcChange.setAttribute('src', data.editing.photoID);
+        $eHeader.textContent = 'edit-entry';
       }
     });
   }
