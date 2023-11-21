@@ -20,6 +20,8 @@ $photoId.addEventListener('input', (e) => {
 
 // submit event
 
+// form subit event's
+
 // Listner method for the actual form submition
 
 $form.addEventListener('submit', (e) => {
