@@ -10,7 +10,6 @@ const $entryForm = document.querySelector('.query_one');
 const $entriesBottom = document.querySelector('.query_two');
 const $newBtn = document.querySelector('.new_js');
 const $nullMsg = document.querySelector('.nullMsg');
-const $findingTheDomCreatedLis = document.querySelector('li.row');
 const $eHeader = document.querySelector('.entryHeader');
 
 // event on the photoURL input which listen's for when the user type's
@@ -57,20 +56,23 @@ $form.addEventListener('submit', (e) => {
         // Replacing the object in the data.entries object/array with the data.editing object
         // data.entries = data.editing
         // Updating the objStorageFoemInputs.entryId with editing value inside the object's array in LS
-        objStorageFormInputs.entryId = data.editing;
+        objStorageFormInputs.entryId = dataEl;
         // DOM tree callback call with the object arg.
-        data.entries = data.editing;
+        dataEl = data.editing;
         // })
 
         // Finding the existing LI element and changing/replacing it's value to
         // to match the editing array
 
-        $findingTheDomCreatedLis.replaceWith(dataEl);
+        // Calling the renderEntry() function and replacing the DOM tree and the object's with the edited content
+        renderEntry(objStorageFormInputs).replaceWith(dataEl);
 
         // finding the LI and changing it's value end
+
+        // nulling out the form once it's a wrap
+        data.editing = null;
       }
     });
-    renderEntry(objStorageFormInputs);
   }
   // Invoking the viewSwap() and the toggleEnties() callback's
   viewSwap('entries');
