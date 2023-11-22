@@ -73,6 +73,7 @@ $form.addEventListener('submit', (e) => {
 
         // nulling out the form once it's a wrap
         data.editing = null;
+        $form.reset();
       }
     });
   }
