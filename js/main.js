@@ -1,4 +1,6 @@
 /* global data */
+
+// Storing the variable's in constant key's
 const $imgSrcChange = document.querySelector('.changed');
 const $photoId = document.querySelector('.photoURL');
 const $form = document.querySelector('form');
@@ -7,45 +9,87 @@ const $anchorEntries = document.querySelector('.entriesBtn');
 const $entryForm = document.querySelector('.query_one');
 const $entriesBottom = document.querySelector('.query_two');
 const $newBtn = document.querySelector('.new_js');
+const $nullMsg = document.querySelector('.nullMsg');
+const $eHeader = document.querySelector('.entryHeader');
+
+// event on the photoURL input which listen's for when the user type's
 
 $photoId.addEventListener('input', (e) => {
   $imgSrcChange.setAttribute('src', e.target.value);
 });
+
 // submit event
+
+// form subit event's
+
+// Listner method for the actual form submition
 
 $form.addEventListener('submit', (e) => {
   e.preventDefault();
+
+  // This conditional checks if the data.editing pencil is a value of null or not null
+
   const objStorageFormInputs = {
     entryId: data.nextEntryId,
     title: e.target.elements.title.value,
     photoID: e.target.elements.photoID.value,
     textarea: e.target.elements.textarea.value,
   };
+  if (data.editing === null) {
+    data.nextEntryId++;
 
-  data.nextEntryId++;
+    data.entries.unshift(objStorageFormInputs);
 
-  data.entries.unshift(objStorageFormInputs);
+    $imgSrcChange.setAttribute('src', './images/placeholder-image-square.jpg');
 
-  $imgSrcChange.setAttribute('src', './images/placeholder-image-square.jpg');
+    $form.reset();
 
-  $form.reset();
+    // render the renderEntry callback on the form if the form's submitted
 
-  // render the renderEntry callback on the form if the form's submitted
+    const $callRender = renderEntry(objStorageFormInputs);
+    // Update for the editing view using a condition
+    // Current step in code-journal
 
-  const $callRender = renderEntry(objStorageFormInputs);
+    $entriesList.prepend($callRender);
+  } else if (data.editing !== null) {
+    // Looping over the Data.entrie's array and finding which element's matche's the data.editing
+    data.entries.forEach((dataEl) => {
+      if (dataEl === data.editing) {
+        // Replacing the object in the data.entries object/array with the data.editing object
+        // data.entries = data.editing
+        // Updating the objStorageFoemInputs.entryId with editing value inside the object's array in LS
+        objStorageFormInputs.entryId = dataEl;
+        // DOM tree callback call with the object arg.
+        dataEl = data.editing;
+        // })
 
-  $entriesList.prepend($callRender);
+        // Finding the existing LI element and changing/replacing it's value to
+        // to match the editing array
+
+        // Calling the renderEntry() function and replacing the DOM tree and the object's with the edited content
+        renderEntry(objStorageFormInputs).replaceWith(dataEl);
+
+        // finding the LI and changing it's value end
+
+        // nulling out the form once it's a wrap
+        data.editing = null;
+        $form.reset();
+      }
+    });
+  }
+  // Invoking the viewSwap() and the toggleEnties() callback's
   viewSwap('entries');
   toggleEntries();
 });
 
-// renderEntriy function create DOM tree structure
+// renderEntriy function functionallity i's to create a DOM tree structure
 
+// Creating the DOM tree function calle'd renderEntry
 const renderEntry = (entry) => {
   // create the li element dom tree
-
   const $liCreation = document.createElement('li');
   $liCreation.className = 'row';
+  $liCreation.setAttribute('data-entry-id', entry.entryId);
 
   // div element creation
 
@@ -73,9 +117,18 @@ const renderEntry = (entry) => {
   $p2.textContent = entry.textarea;
   // appending to the DOM with appendChild
 
+  // adding the pencil icon from font awesome
+
+  const createIcon = document.createElement('i');
+  createIcon.className =
+    'fa-pencil fa-solid mt fontAwesomeIcons fontAwesomeIcons_sizes';
+  createIcon.setAttribute('title', 'Edit Entry');
+
+  // appending the element's to the DOM
   $liCreation.appendChild($div);
   $liCreation.appendChild($div2);
   $div.appendChild($imgDomTree);
+  $div2.appendChild(createIcon);
   $div2.appendChild($h1);
   $div2.appendChild($p2);
 
@@ -84,16 +137,17 @@ const renderEntry = (entry) => {
   return $liCreation;
 };
 
-// Calling the addEventListner on the DOM'S document
-const $nullMsg = document.querySelector('.nullMsg');
+// const $nullMsg = document.querySelector('.nullMsg');
 
+// Calling the addEventListner on the Document's document
+
+// documen't event handler
 document.addEventListener('DOMContentLoaded', () => {
   for (let i = 0; i < data.entries.length; i += 1) {
     $entriesList.appendChild(renderEntry(data.entries[i]));
   }
+  // calling the callback's of the viewSwap and toggleEntrie's function
   viewSwap(data.view);
-  //  Creating a coditional inside a function named toggleNoEntries checking if the ul's
-  //  text content is not null
   toggleEntries();
 });
 
@@ -119,7 +173,7 @@ function viewSwap(entries) {
 }
 
 // working with the form's new button
-
+// Clicking the top entries nav bar a tag will take you to the top entrie's form even't handler
 $newBtn.addEventListener('click', () => {
   viewSwap('entry-form');
 });
@@ -130,3 +184,25 @@ $anchorEntries.addEventListener('click', () => {
   viewSwap('entries');
   toggleEntries();
 });
+const valOne = document.querySelector('.val');
+const valTwo = document.querySelector('.emailInp');
+const textArea = document.querySelector('.textInp');
+$entriesList.addEventListener('click', (e) => {
+  const liRow = e.target.closest('li');
+
+  if (e.target.tagName === 'I') {
+    viewSwap('entry-form');
+    data.entries.forEach((dataEl) => {
+      if (dataEl.entryId.toString() === liRow.getAttribute('data-entry-id')) {
+        data.editing = dataEl;
+        valOne.value = data.editing.title;
+        valTwo.value = data.editing.photoID;
+        textArea.value = data.editing.textarea;
+        $imgSrcChange.setAttribute('src', data.editing.photoID);
+        $eHeader.textContent = 'edit-entry';
+      }
+    });
+  }
+});
+
+// comment for git purposes

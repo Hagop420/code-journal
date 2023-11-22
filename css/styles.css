@@ -114,3 +114,16 @@ textarea {
 button {
   cursor: pointer;
 }
+
+/* branch 3 styling */
+
+.fontAwesomeIcons {
+  float: right;
+  cursor: pointer;
+}
+
+.fontAwesomeIcons_sizes {
+  font-size: 19px;
+}
+
+/* i:hover{cursor: pointer;opacity:.8;color:rgb(0, 106, 255)} */
