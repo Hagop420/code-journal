@@ -11,6 +11,7 @@ const $entriesBottom = document.querySelector('.query_two');
 const $newBtn = document.querySelector('.new_js');
 const $nullMsg = document.querySelector('.nullMsg');
 const $eHeader = document.querySelector('.entryHeader');
+const $delete_entry_btn = document.querySelector('.delEntry');
 
 // event on the photoURL input which listen's for when the user type's
 
@@ -200,9 +201,17 @@ $entriesList.addEventListener('click', (e) => {
         textArea.value = data.editing.textarea;
         $imgSrcChange.setAttribute('src', data.editing.photoID);
         $eHeader.textContent = 'edit-entry';
+        $delete_entry_btn.className = 'block delEntry'
       }
     });
   }
 });
 
 // comment for git purposes
+
+
+
+
+// // delete entry button
+// console.log(delete_entry_btn)
+console.log($delete_entry_btn)

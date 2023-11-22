@@ -126,4 +126,14 @@ button {
   font-size: 19px;
 }
 
+button.delEntry{
+  color:#000;
+  border:0;
+background:none;
+text-decoration: underline;
+text-decoration-color: red;
+margin:5px;
+font-size:15px
+}
+
 /* i:hover{cursor: pointer;opacity:.8;color:rgb(0, 106, 255)} */
