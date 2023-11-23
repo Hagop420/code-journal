@@ -12,6 +12,9 @@ const $newBtn = document.querySelector('.new_js');
 const $nullMsg = document.querySelector('.nullMsg');
 const $eHeader = document.querySelector('.entryHeader');
 const $delete_entry_btn = document.querySelector('.delEntry');
+const $modal_open = document.querySelector('.modal-container');
+const $modal_content = document.querySelector('.modal-content');
+// const $modal_open_overlay = document.querySelector('.overlay');
 
 // event on the photoURL input which listen's for when the user type's
 
@@ -206,6 +209,16 @@ $entriesList.addEventListener('click', (e) => {
     });
   }
 });
+
+
+
+
+
+$delete_entry_btn.addEventListener('click' , () => {
+
+  $modal_open.className = 'block confirmation overlay'
+  $modal_content.className = 'modal-content-inner-center'
+})
 
 // comment for git purposes
 

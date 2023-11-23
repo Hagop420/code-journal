@@ -69,8 +69,11 @@
               </label>
             </div>
           </div>
+
+
+
           <!-- User can delete this input form entry button -->
-          <button class="text-cap delEntry hidden">delete entry</button>
+          <a href="#" class="text-cap delEntry hidden">delete entry</a>
           <!-- mobile txtarea -->
           <div class="row justify-end">
             <!-- <label> -->
@@ -96,7 +99,19 @@
           <ul class="unordered"></ul>
         </div>
       </div>
+      <!-- Modal for deleting entrie's -->
+
+        <div class="modal-container hidden">
+          <div class="modal-content">
+            <h1 class="text-cap modal-font">are you sure you wanna delete your entries?</h1>
+            <button class="modal-button-confirm">Yes</button>
+            <button class="modal-deny">No</button>
+          </div>
+        </div>
+
+
     </main>
+
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
   </body>
