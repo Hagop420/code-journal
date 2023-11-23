@@ -120,6 +120,18 @@ document.addEventListener('DOMContentLoaded', () => {
   viewSwap(data.view);
   toggleEntries();
 });
+// document.addEventListener('DOMContentLoaded', function (event) {
+//   const $entries = data.entries;
+
+//   for (let i = 0; i < $entries.length; i++) {
+//     const entry = renderEntry($entries[i]);
+//     $entriesList.appendChild(entry);
+//   }
+//   viewSwap(data.view);
+//   toggleEntries();
+// });
+
+
 function toggleEntries() {
   if (data.entries.length === 0) {
     $nullMsg.classList.add('block');
@@ -170,9 +182,15 @@ $entriesList.addEventListener('click', (e) => {
   }
 });
 // Branch 4 Modal's functionallity
+const audioPlayWhenButtonIsClicked = new Audio()
+
+
+
 $delete_entry_btn.addEventListener('click', () => {
   $modal_open.className = 'block confirmation overlay'
   $modal_content.className = 'modal-content-inner-center'
+  // audio when modal's opene'd
+  elevatorMusic()
 })
 // Event handler's on the button's in the modal
 // calling/Giving the  button's in the modal a class of cursor and more preetie'r styling
@@ -202,11 +220,38 @@ $modal_button_no.addEventListener('mouseout', () => {
 $modal_button_yes.addEventListener('click', () => {
   $modal_open.className = 'hidden'
   $form.reset()
+  // Setting a cool clicking sound when clicke'd
+coolAudtioInplementation()
+audioPlayWhenButtonIsClicked.pause()
 })
 $modal_button_no.addEventListener('click', () => {
   $modal_open.className = 'hidden'
+  // Setting a cool clicking sound when clicke'd
+ coolAudtioInplementation()
+ audioPlayWhenButtonIsClicked.pause()
 })
-// comment for git purposes
+
+
+
+function coolAudtioInplementation(){
+  const audioPlayWhenButtonIsClicked = new Audio()
+
+  audioPlayWhenButtonIsClicked.src = 'https://www.fesliyanstudios.com/play-mp3/387'
+
+  audioPlayWhenButtonIsClicked.play()
+}
+
+
+
+// when modal is opnene'd play the elevator music function inplement
+function elevatorMusic(){
+
+  audioPlayWhenButtonIsClicked.src = 'https://dl.vgmdownloads.com/soundtracks/club-penguin-online-unofficial-soundtrack-online-windows-gamerip-2018/tltdklykwt/2-12.%20Pizza%20Parlor.mp3'
+  audioPlayWhenButtonIsClicked.loop = true
+
+  audioPlayWhenButtonIsClicked.play()
+}
+// comment for git
 // // delete entry button
 // console.log(delete_entry_btn)
 console.log($delete_entry_btn)
