@@ -1,5 +1,4 @@
 /* global data */
-
 // Storing the variable's in constant key's
 const $imgSrcChange = document.querySelector('.changed');
 const $photoId = document.querySelector('.photoURL');
@@ -14,25 +13,19 @@ const $eHeader = document.querySelector('.entryHeader');
 const $delete_entry_btn = document.querySelector('.delEntry');
 const $modal_open = document.querySelector('.modal-container');
 const $modal_content = document.querySelector('.modal-content');
+const $modal_button_yes = document.querySelector('.modal-button-confirm');
+const $modal_button_no = document.querySelector('.modal-deny');
 // const $modal_open_overlay = document.querySelector('.overlay');
-
 // event on the photoURL input which listen's for when the user type's
-
 $photoId.addEventListener('input', (e) => {
   $imgSrcChange.setAttribute('src', e.target.value);
 });
-
 // submit event
-
 // form subit event's
-
 // Listner method for the actual form submition
-
 $form.addEventListener('submit', (e) => {
   e.preventDefault();
-
   // This conditional checks if the data.editing pencil is a value of null or not null
-
   const objStorageFormInputs = {
     entryId: data.nextEntryId,
     title: e.target.elements.title.value,
@@ -41,19 +34,13 @@ $form.addEventListener('submit', (e) => {
   };
   if (data.editing === null) {
     data.nextEntryId++;
-
     data.entries.unshift(objStorageFormInputs);
-
     $imgSrcChange.setAttribute('src', './images/placeholder-image-square.jpg');
-
     $form.reset();
-
     // render the renderEntry callback on the form if the form's submitted
-
     const $callRender = renderEntry(objStorageFormInputs);
     // Update for the editing view using a condition
     // Current step in code-journal
-
     $entriesList.prepend($callRender);
   } else if (data.editing !== null) {
     // Looping over the Data.entrie's array and finding which element's matche's the data.editing
@@ -66,15 +53,11 @@ $form.addEventListener('submit', (e) => {
         // DOM tree callback call with the object arg.
         dataEl = data.editing;
         // })
-
         // Finding the existing LI element and changing/replacing it's value to
         // to match the editing array
-
         // Calling the renderEntry() function and replacing the DOM tree and the object's with the edited content
         renderEntry(objStorageFormInputs).replaceWith(dataEl);
-
         // finding the LI and changing it's value end
-
         // nulling out the form once it's a wrap
         data.editing = null;
         $form.reset();
@@ -85,49 +68,37 @@ $form.addEventListener('submit', (e) => {
   viewSwap('entries');
   toggleEntries();
 });
-
 // renderEntriy function functionallity i's to create a DOM tree structure
-
 // Creating the DOM tree function calle'd renderEntry
 const renderEntry = (entry) => {
   // create the li element dom tree
   const $liCreation = document.createElement('li');
   $liCreation.className = 'row';
   $liCreation.setAttribute('data-entry-id', entry.entryId);
-
   // div element creation
-
   const $div = document.createElement('div');
   $div.className = 'column-half';
   // div 2 creation
-
   const $div2 = document.createElement('div');
   $div2.className = 'column-half';
-
   // img element creation
-
   const $imgDomTree = document.createElement('img');
   $imgDomTree.setAttribute('src', entry.photoID);
   $imgDomTree.setAttribute('alt', 'img_from_Dom');
-
   // p one element creation
   const $h1 = document.createElement('p');
   $h1.className = 'bold appnedHtwo';
   $h1.textContent = entry.title;
-
   // p two element creation
   const $p2 = document.createElement('p');
   $p2.className = 'appendChildFromJs';
   $p2.textContent = entry.textarea;
   // appending to the DOM with appendChild
-
   // adding the pencil icon from font awesome
-
   const createIcon = document.createElement('i');
   createIcon.className =
     'fa-pencil fa-solid mt fontAwesomeIcons fontAwesomeIcons_sizes';
   createIcon.setAttribute('title', 'Edit Entry');
-
   // appending the element's to the DOM
   $liCreation.appendChild($div);
   $liCreation.appendChild($div2);
@@ -135,16 +106,11 @@ const renderEntry = (entry) => {
   $div2.appendChild(createIcon);
   $div2.appendChild($h1);
   $div2.appendChild($p2);
-
   //  returrns the li element with all the dom nodes/creation
-
   return $liCreation;
 };
-
 // const $nullMsg = document.querySelector('.nullMsg');
-
 // Calling the addEventListner on the Document's document
-
 // documen't event handler
 document.addEventListener('DOMContentLoaded', () => {
   for (let i = 0; i < data.entries.length; i += 1) {
@@ -154,7 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
   viewSwap(data.view);
   toggleEntries();
 });
-
 function toggleEntries() {
   if (data.entries.length === 0) {
     $nullMsg.classList.add('block');
@@ -168,22 +133,18 @@ function viewSwap(entries) {
   if (entries === 'entries') {
     $entriesBottom.classList.remove('hidden');
     $entryForm.classList.add('hidden');
-
     // entry-form is the entry on top
   } else if (entries === 'entry-form') {
     $entryForm.classList.remove('hidden');
     $entriesBottom.classList.add('hidden');
   }
 }
-
 // working with the form's new button
 // Clicking the top entries nav bar a tag will take you to the top entrie's form even't handler
 $newBtn.addEventListener('click', () => {
   viewSwap('entry-form');
 });
-
 // working with the entries anchor tag on top and calling an event on it
-
 $anchorEntries.addEventListener('click', () => {
   viewSwap('entries');
   toggleEntries();
@@ -193,7 +154,6 @@ const valTwo = document.querySelector('.emailInp');
 const textArea = document.querySelector('.textInp');
 $entriesList.addEventListener('click', (e) => {
   const liRow = e.target.closest('li');
-
   if (e.target.tagName === 'I') {
     viewSwap('entry-form');
     data.entries.forEach((dataEl) => {
@@ -209,22 +169,44 @@ $entriesList.addEventListener('click', (e) => {
     });
   }
 });
-
-
-
-
-
-$delete_entry_btn.addEventListener('click' , () => {
-
+// Branch 4 Modal's functionallity
+$delete_entry_btn.addEventListener('click', () => {
   $modal_open.className = 'block confirmation overlay'
   $modal_content.className = 'modal-content-inner-center'
 })
-
+// Event handler's on the button's in the modal
+// calling/Giving the  button's in the modal a class of cursor and more preetie'r styling
+// giving them a font size of 16px
+$modal_button_yes.classList.add('btn-sized')
+$modal_button_no.classList.add('btn-sized')
+$modal_button_yes.addEventListener('mouseover', () => {
+  $modal_button_yes.classList.add('scaled')
+  $modal_button_yes.classList.add('white-modal-button')
+  $modal_button_yes.classList.add('opacity-smaller')
+})
+$modal_button_yes.addEventListener('mouseout', () => {
+  $modal_button_yes.classList.remove('scaled')
+  $modal_button_yes.classList.remove('white-modal-button')
+  $modal_button_yes.classList.remove('opacity-smaller')
+})
+//  Button custimization's for no in moodal
+$modal_button_no.addEventListener('mouseover', () => {
+  $modal_button_no.classList.add('scaled')
+  $modal_button_no.classList.add('white-modal-button')
+})
+$modal_button_no.addEventListener('mouseout', () => {
+  $modal_button_no.classList.remove('scaled')
+  $modal_button_no.classList.remove('white-modal-button')
+})
+// click event's for the modal's button's
+$modal_button_yes.addEventListener('click', () => {
+  $modal_open.className = 'hidden'
+  $form.reset()
+})
+$modal_button_no.addEventListener('click', () => {
+  $modal_open.className = 'hidden'
+})
 // comment for git purposes
-
-
-
-
 // // delete entry button
 // console.log(delete_entry_btn)
 console.log($delete_entry_btn)
