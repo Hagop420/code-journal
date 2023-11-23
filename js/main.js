@@ -11,6 +11,7 @@ const $newBtn = document.querySelector('.new_js');
 const $nullMsg = document.querySelector('.nullMsg');
 const $eHeader = document.querySelector('.entryHeader');
 const $delete_entry_btn = document.querySelector('.delEntry');
+const $modal_font = document.querySelector('.modal-font');
 const $modal_open = document.querySelector('.modal-container');
 const $modal_content = document.querySelector('.modal-content');
 const $modal_button_yes = document.querySelector('.modal-button-confirm');
@@ -120,18 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
   viewSwap(data.view);
   toggleEntries();
 });
-// document.addEventListener('DOMContentLoaded', function (event) {
-//   const $entries = data.entries;
-
-//   for (let i = 0; i < $entries.length; i++) {
-//     const entry = renderEntry($entries[i]);
-//     $entriesList.appendChild(entry);
-//   }
-//   viewSwap(data.view);
-//   toggleEntries();
-// });
-
-
 function toggleEntries() {
   if (data.entries.length === 0) {
     $nullMsg.classList.add('block');
@@ -182,6 +171,9 @@ $entriesList.addEventListener('click', (e) => {
   }
 });
 // Branch 4 Modal's functionallity
+
+// Modal header/content styling
+$modal_font.classList.add('modal-js-content-styling')
 const audioPlayWhenButtonIsClicked = new Audio()
 
 
@@ -221,19 +213,19 @@ $modal_button_yes.addEventListener('click', () => {
   $modal_open.className = 'hidden'
   $form.reset()
   // Setting a cool clicking sound when clicke'd
-coolAudtioInplementation()
-audioPlayWhenButtonIsClicked.pause()
+  coolAudtioInplementation()
+  audioPlayWhenButtonIsClicked.pause()
 })
 $modal_button_no.addEventListener('click', () => {
   $modal_open.className = 'hidden'
   // Setting a cool clicking sound when clicke'd
- coolAudtioInplementation()
- audioPlayWhenButtonIsClicked.pause()
+  coolAudtioInplementation()
+  audioPlayWhenButtonIsClicked.pause()
 })
 
 
 
-function coolAudtioInplementation(){
+function coolAudtioInplementation() {
   const audioPlayWhenButtonIsClicked = new Audio()
 
   audioPlayWhenButtonIsClicked.src = 'https://www.fesliyanstudios.com/play-mp3/387'
@@ -244,7 +236,7 @@ function coolAudtioInplementation(){
 
 
 // when modal is opnene'd play the elevator music function inplement
-function elevatorMusic(){
+function elevatorMusic() {
 
   audioPlayWhenButtonIsClicked.src = 'https://dl.vgmdownloads.com/soundtracks/club-penguin-online-unofficial-soundtrack-online-windows-gamerip-2018/tltdklykwt/2-12.%20Pizza%20Parlor.mp3'
   audioPlayWhenButtonIsClicked.loop = true
