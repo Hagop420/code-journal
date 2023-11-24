@@ -4,6 +4,7 @@ const $imgSrcChange = document.querySelector('.changed');
 const $photoId = document.querySelector('.photoURL');
 const $form = document.querySelector('form');
 const $entriesList = document.querySelector('.unordered');
+const $all_list_items = document.querySelectorAll('li');
 const $anchorEntries = document.querySelector('.entriesBtn');
 const $entryForm = document.querySelector('.query_one');
 const $entriesBottom = document.querySelector('.query_two');
@@ -179,6 +180,7 @@ const audioPlayWhenButtonIsClicked = new Audio()
 
 
 $delete_entry_btn.addEventListener('click', () => {
+  document.body.classList.add('overflow_hide')
   $modal_open.className = 'block confirmation overlay'
   $modal_content.className = 'modal-content-inner-center'
   // audio when modal's opene'd
@@ -210,18 +212,51 @@ $modal_button_no.addEventListener('mouseout', () => {
 })
 // click event's for the modal's button's
 $modal_button_yes.addEventListener('click', () => {
-  $modal_open.className = 'hidden'
-  $form.reset()
-  // Setting a cool clicking sound when clicke'd
-  coolAudtioInplementation()
+
+  // Audio's here
   audioPlayWhenButtonIsClicked.pause()
+  coolAudtioInplementation()
+
+
+//   Looping and L.S deletion's
+  for (let i = 0; i < $all_list_items.length; i++) {
+    const dataEntryId = $all_list_items[i].getAttribute('data-entry-id');
+    if (data.editing.entryId === Number(dataEntryId)) {
+      $all_list_items[i].remove();
+    }
+  }
+  for (let i = 0; i < data.entries.length; i++) {
+    if (data.editing.entryId === data.entries[i].entryId) {
+      data.entries.splice(i, 1);
+    }
+  }
+  data.editing = null;
+  $imgSrcChange.src = 'images/placeholder-image-square.jpg';
+  document.body.classList.remove('overflow_hide')
+  $modal_open.className = 'hidden'
+  // $form.reset()
+  viewSwap('entries');
+  toggleEntries();
+
+
 })
 $modal_button_no.addEventListener('click', () => {
+  document.body.classList.remove('overflow_hide')
   $modal_open.className = 'hidden'
+
+
+
   // Setting a cool clicking sound when clicke'd
   coolAudtioInplementation()
   audioPlayWhenButtonIsClicked.pause()
+
 })
+
+
+
+
+
+// Audio function's
 
 
 
@@ -243,7 +278,3 @@ function elevatorMusic() {
 
   audioPlayWhenButtonIsClicked.play()
 }
-// comment for git
-// // delete entry button
-// console.log(delete_entry_btn)
-console.log($delete_entry_btn)

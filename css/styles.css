@@ -1,3 +1,7 @@
+body{
+  overflow: scroll;
+}
+
 .text-cap {
   text-transform: capitalize;
 }
@@ -214,6 +218,8 @@ font-size:15px
   transition: .4s all ease-in-out;
 }
 
+
+.overflow_hide{overflow: hidden;}
 
 
 
