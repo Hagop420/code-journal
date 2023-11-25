@@ -115,7 +115,7 @@ const renderEntry = (entry) => {
 // Calling the addEventListner on the Document's document
 // documen't event handler
 document.addEventListener('DOMContentLoaded', () => {
-  for (let i = 0; i < data.entries.length; i += 1) {
+  for (let i = 0; i < data.entries.length; i+=1) {
     $entriesList.appendChild(renderEntry(data.entries[i]));
   }
   // calling the callback's of the viewSwap and toggleEntrie's function
@@ -218,23 +218,24 @@ $modal_button_yes.addEventListener('click', () => {
   coolAudtioInplementation()
 
 
-//   Looping and L.S deletion's
+  //   Looping and L.S deletion’s
   for (let i = 0; i < $all_list_items.length; i++) {
-    const dataEntryId = $all_list_items[i].getAttribute('data-entry-id');
-    if (data.editing.entryId === Number(dataEntryId)) {
+    const getAttrLis = $all_list_items[i].getAttribute('data-entry-id');
+    if (data.editing.entryId === Number(getAttrLis)) {
       $all_list_items[i].remove();
     }
   }
   for (let i = 0; i < data.entries.length; i++) {
     if (data.editing.entryId === data.entries[i].entryId) {
       data.entries.splice(i, 1);
+      console.log(data.entries)
     }
   }
-  data.editing = null;
-  $imgSrcChange.src = 'images/placeholder-image-square.jpg';
+  // $photoId.src = 'images/placeholder-image-square.jpg'
   document.body.classList.remove('overflow_hide')
   $modal_open.className = 'hidden'
-  // $form.reset()
+  $form.reset()
+  data.editing = null;
   viewSwap('entries');
   toggleEntries();
 
@@ -244,6 +245,7 @@ $modal_button_no.addEventListener('click', () => {
   document.body.classList.remove('overflow_hide')
   $modal_open.className = 'hidden'
 
+  viewSwap('entries');
 
 
   // Setting a cool clicking sound when clicke'd
