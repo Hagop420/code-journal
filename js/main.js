@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 function toggleEntries() {
   if (data.entries.length === 0) {
     // $nullMsg.classList.add('block');
-    $nullMsg.classList.remmove('hidden');
+    $nullMsg.classList.remove('hidden');
   } else{
     // $nullMsg.classList.add('hidden');
     $nullMsg.classList.add('hidden');
@@ -237,9 +237,7 @@ $modal_button_no.addEventListener('mouseout', () => {
 $modal_button_yes.addEventListener('click', () => {
   document.body.classList.remove('overflow_hide')
   $modal_open.className = 'hidden'
-
   $nullMsg.className = 'block'
-
 
   // // Audio's here
   audioPlayWhenButtonIsClicked.pause()
@@ -250,9 +248,10 @@ $modal_button_yes.addEventListener('click', () => {
   for (let i = 0; i < $all_list_items.length; i++) {
     const getAttrLis = $all_list_items[i].getAttribute('data-entry-id');
     if (data.editing.entryId === Number(getAttrLis)) {
+      console.log(data.editing.entryId === Number(getAttrLis))
       const lis = $all_list_items[i]
       lis.remove()
-      console.log(lis)
+
     }
   }
 
