@@ -152,8 +152,7 @@ font-size:15px
   display: flex;
   justify-content: center;
   text-align: center;
-  align-items:center
-
+  align-items:center;
 }
 
 .modal-button-confirm{
@@ -161,11 +160,11 @@ font-size:15px
       margin: 10px;
       border: 0;
       border-radius: .4rem;
-      background: rgb(0, 255, 0);
+      background: rgb(229, 36, 36);
       transition: .3s all ease-in-out
 }
 
-.opacity-smaller{background:green}
+.opacity-smaller{background:red}
 
 
 
@@ -184,13 +183,21 @@ font-size:15px
   margin:10px;
   border: 0;
   border-radius: .4rem;
-  background-color:red;
+  background-color:grey;
   transition: .3s all ease-in-out
 }
 
-.modal-content-inner-center{
-  height:50vh;
-  margin-top: 40vh;
+.modal-content-inner-center {
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 40px auto;
+  align-items: center;
+  margin-top: 35vh;
+  background-color: #fff;
+  width: 500px;
+  border-radius:.3rem
 }
 
 
@@ -201,7 +208,7 @@ font-size:15px
 
 /* chaging the color of the modal header/text */
 
-.modal-js-content-styling{font-family:sans-serif;color:yellow}
+.modal-js-content-styling{font-family:sans-serif;color:#000;font-size:17px}
 
 
 
@@ -221,7 +228,10 @@ font-size:15px
 
 .overflow_hide{overflow: hidden;}
 
-
+.flex-btns{
+  display: flex;
+justify-content: space-between;
+}
 
 
 /* When modal is opene'd give the body an overlay */

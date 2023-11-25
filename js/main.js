@@ -245,7 +245,6 @@ $modal_button_no.addEventListener('click', () => {
   document.body.classList.remove('overflow_hide')
   $modal_open.className = 'hidden'
 
-  viewSwap('entries');
 
 
   // Setting a cool clicking sound when clicke'd
