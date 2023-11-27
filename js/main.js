@@ -4,7 +4,7 @@ const $imgSrcChange = document.querySelector('.changed');
 const $photoId = document.querySelector('.photoURL');
 const $form = document.querySelector('form');
 const $entriesList = document.querySelector('.unordered');
-const $all_list_items = document.querySelectorAll('li');
+const $all_list_items = document.querySelectorAll('li.row');
 const $anchorEntries = document.querySelector('.entriesBtn');
 const $entryForm = document.querySelector('.query_one');
 const $entriesBottom = document.querySelector('.query_two');
@@ -135,10 +135,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 function toggleEntries() {
   if (data.entries.length === 0) {
-    // $nullMsg.classList.add('block');
-    $nullMsg.classList.remove('hidden');
+    $nullMsg.classList.add('block');
+    // $nullMsg.classList.remove('hidden');
   } else{
-    // $nullMsg.classList.add('hidden');
+    $nullMsg.classList.remove('block');
     $nullMsg.classList.add('hidden');
   }
 }
@@ -159,7 +159,7 @@ function viewSwap(entries) {
 $newBtn.addEventListener('click', () => {
   viewSwap('entry-form');
   $form.reset()
-  // $imgSrcChange.src = 'images/placeholder-image-square.jpg'
+  $imgSrcChange.src = 'images/placeholder-image-square.jpg'
 
 });
 // working with the entries anchor tag on top and calling an event on it
@@ -244,34 +244,31 @@ $modal_button_yes.addEventListener('click', () => {
   coolAudtioInplementation()
 
 
-  //   Looping and L.S deletion’s
-  for (let i = 0; i < $all_list_items.length; i++) {
-    const getAttrLis = $all_list_items[i].getAttribute('data-entry-id');
-    if (data.editing.entryId === Number(getAttrLis)) {
-      console.log(data.editing.entryId === Number(getAttrLis))
-      const lis = $all_list_items[i]
-      lis.remove()
 
-    }
-  }
-
-
+  // Looping through the data entries
   for (let i = 0; i < data.entries.length; i++) {
     if (data.editing.entryId === data.entries[i].entryId) {
       data.entries.splice(i, 1);
-      // console.log(data.entries)
     }
 
+  }
+  //   Looping and each clicked li is deleted
+  for (let i = 0; i < $all_list_items.length; i++) {
+    const chk = Number($all_list_items[i].getAttribute('data-entry-id'));
+
+    if (data.editing.entryId === chk) {
+      const lis = $all_list_items[i]
+      lis.remove()
+      console.log(8)
+      break;
+        }
   }
 
   $imgSrcChange.src = 'images/placeholder-image-square.jpg'
   $form.reset()
-  data.editing = null;
-  viewSwap('entries')
   toggleEntries();
-
-
-
+  viewSwap('entries')
+  data.editing = null;
 
 })
 
