@@ -235,6 +235,9 @@ $modal_button_no.addEventListener('mouseout', () => {
 })
 // click event's for the modal's button's
 $modal_button_yes.addEventListener('click', () => {
+  const $lis = document.querySelectorAll('li');
+  debugger;
+  console.log('running');
   document.body.classList.remove('overflow_hide')
   $modal_open.className = 'hidden'
   $nullMsg.className = 'block'
@@ -253,11 +256,12 @@ $modal_button_yes.addEventListener('click', () => {
 
   }
   //   Looping and each clicked li is deleted
-  for (let i = 0; i < $all_list_items.length; i++) {
-    const chk = Number($all_list_items[i].getAttribute('data-entry-id'));
+  for (let i = 0; i < $lis.length; i++) {
+    debugger;
+    const chk = Number($lis[i].getAttribute('data-entry-id'));
 
     if (data.editing.entryId === chk) {
-      const lis = $all_list_items[i]
+      const lis = $lis[i]
       lis.remove()
       console.log(8)
       break;
