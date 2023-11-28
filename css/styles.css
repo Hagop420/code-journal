@@ -1,3 +1,7 @@
+body{
+  overflow: scroll;
+}
+
 .text-cap {
   text-transform: capitalize;
 }
@@ -97,6 +101,7 @@ textarea {
   display: block;
 }
 
+
 .entriesNav {
   display: flex;
   align-items: center;
@@ -113,4 +118,132 @@ textarea {
 
 button {
   cursor: pointer;
+}
+
+/* branch 3 styling */
+
+.fontAwesomeIcons {
+  float: right;
+  cursor: pointer;
+}
+
+.fontAwesomeIcons_sizes {
+  font-size: 19px;
+}
+
+button.delEntry{
+  color:#000;
+  border:0;
+background:none;
+text-decoration: underline;
+text-decoration-color: red;
+margin:5px;
+font-size:15px
+}
+
+/* i:hover{cursor: pointer;opacity:.8;color:rgb(0, 106, 255)} */
+
+
+
+
+/* Modal classes */
+
+
+.modal-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items:center;
+}
+
+.modal-button-confirm{
+    padding: 10px 30px;
+      margin: 10px;
+      border: 0;
+      border-radius: .4rem;
+      background: rgb(229, 36, 36);
+      transition: .3s all ease-in-out
+}
+
+.opacity-smaller{background:red}
+
+
+
+
+/* delete entry a tag custom's here */
+.delEntry{
+  text-decoration:none;
+  border-bottom:red 1.2px solid;
+  width:75.1px;
+  color:red
+}
+
+
+.modal-deny{
+  padding:10px 30px;
+  margin:10px;
+  border: 0;
+  border-radius: .4rem;
+  background-color:grey;
+  transition: .3s all ease-in-out
+}
+
+.modal-content-inner-center {
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 40px auto;
+  align-items: center;
+  margin-top: 35vh;
+  background-color: #fff;
+  width: 500px;
+  border-radius:.3rem
+}
+
+
+.confirmation{text-align: center}
+
+
+.btn-sized{font-size:16px}
+
+/* chaging the color of the modal header/text */
+
+.modal-js-content-styling{font-family:sans-serif;color:#000;font-size:17px}
+
+
+
+.white-modal-button{color:#e0e0e0}
+
+
+.button-confimation{
+  padding:5px;
+  margin:10px;
+}
+
+.scaled{
+  transform:scale(1.1);
+  transition: .4s all ease-in-out;
+}
+
+
+.overflow_hide{overflow: hidden;}
+
+.flex-btns{
+  display: flex;
+justify-content: space-between;
+}
+
+
+/* When modal is opene'd give the body an overlay */
+
+.overlay {
+  display: block;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(transparent, #000000);
+  bottom: 0;
+  right:0;
+  top:0;
 }

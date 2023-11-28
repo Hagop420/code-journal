@@ -30,14 +30,14 @@
       <div data-view="entry-form" class="query_one">
         <form action="" class="center">
           <div class="row">
-            <h2 class="text-cap column-full">new entries</h2>
+            <h2 class="text-cap column-full entryHeader">new entries</h2>
           </div>
 
           <div class="row">
             <div class="column-half">
               <img
                 src="./images/placeholder-image-square.jpg"
-                class="img-smaller changed"
+                class="img-smaller changed imgInpMain"
                 alt="img_placeholder" />
             </div>
             <div class="column-half">
@@ -49,7 +49,7 @@
                 Photo ID
                 <input
                   type="text"
-                  class="photoURL val"
+                  class="photoURL val emailInp"
                   name="photoID"
                   required />
               </label>
@@ -60,7 +60,7 @@
               <label>
                 Notes
                 <textarea
-                  class="val"
+                  class="val textInp"
                   name="textarea"
                   id="txtarea"
                   cols="55"
@@ -69,11 +69,15 @@
               </label>
             </div>
           </div>
+
+
+
+          <!-- User can delete this input form entry button -->
+          <a href="#" class="text-cap delEntry hidden">delete entry</a>
           <!-- mobile txtarea -->
           <div class="row justify-end">
             <!-- <label> -->
             <button type="submit" class="submitBtn">Save</button>
-            <!-- </label> -->
           </div>
         </form>
       </div>
@@ -95,7 +99,21 @@
           <ul class="unordered"></ul>
         </div>
       </div>
+      <!-- Modal for deleting entrie's -->
+
+        <div class="modal-container hidden">
+          <div class="modal-content">
+            <h1 class="text-cap modal-font">are you sure you wanna delete your entries?</h1>
+            <div class="flex-btns">
+              <button class="modal-button-confirm">Confirm</button>
+              <button class="modal-deny">Cancel</button>
+            </div>
+          </div>
+        </div>
+
+
     </main>
+
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
   </body>

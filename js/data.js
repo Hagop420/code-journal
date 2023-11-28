@@ -8,7 +8,7 @@ let data = {
 
 // localStorage
 
-const previousTodoJSON = window.localStorage.getItem(
+const previousTodoJSON = localStorage.getItem(
   'javascript-local-storage'
 );
 
